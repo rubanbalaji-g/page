@@ -1,0 +1,105 @@
+/* --- General Setup & Variables --- */
+:root {
+    --primary-color: #007bff;      /* A professional blue */
+    --secondary-color: #5a6268;   /* A softer grey for text */
+    --background-color: #f8f9fa;  /* Light grey background */
+    --card-background: #ffffff;   /* White cards */
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Header & Footer Styling --- */
+.site-header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--card-background);
+    border-bottom: 1px solid #e9ecef;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.site-header p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-top: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* --- Main Tools Grid --- */
+.tools-grid {
+    display: grid;
+    /* Creates responsive columns that are at least 320px wide */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 50px 25px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the grid */
+}
+
+/* --- Tool Card Styling --- */
+.tool-card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.tool-card:hover {
+    /* Lifts the card up on hover for a nice interactive effect */
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tool-card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.tool-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: 300;
+}
+
+/* --- Responsive Design for smaller screens --- */
+@media (max-width: 768px) {
+    .site-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tools-grid {
+        padding: 30px 15px;
+    }
+}
