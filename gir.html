@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hypoglycemia Fluid Calculator</title>
+  <style>
+    :root {
+      --bg: #0f172a;            /* slate-900 */
+      --panel: #111827;         /* gray-900 */
+      --card: #0b2239;          /* custom deep blue */
+      --muted: #9ca3af;         /* gray-400 */
+      --text: #f8fafc;          /* slate-50 */
+      --accent: #22d3ee;        /* cyan-400 */
+      --accent-2: #60a5fa;      /* blue-400 */
+      --ok: #4ade80;            /* green-400 light */
+      --warn: #f59e0b;          /* amber-500 */
+      --danger: #ef4444;        /* red-500 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -20%, #0ea5e91a, transparent),
+                  radial-gradient(1200px 600px at 110% 0%, #22d3ee1a, transparent),
+                  var(--bg);
+      color: var(--text);
+    }
+    header {
+      padding: 32px 20px 16px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: clamp(1.4rem, 2.4vw + 1rem, 2.2rem);
+    }
+    header p { margin: 0; color: var(--muted); }
+
+    .container {
+      max-width: 980px;
+      margin: 20px auto 64px;
+      padding: 0 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #0b2239cc, #0b223980);
+      border: 1px solid #1f2a44;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px #0008;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e2f1ff;
+    }
+    
+    .parameter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .parameter-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .parameter-item label {
+      margin-bottom: 0;
+      white-space: nowrap;
+    }
+
+    label { display: block; font-size: 0.9rem; color: #cfe7ff; margin-bottom: 6px; }
+
+    .input {
+      display: flex; align-items: center; gap: 10px; width: 100%;
+      background: #0a1a2d; border: 1px solid #1e3a5f; color: var(--text);
+      padding: 10px 12px; border-radius: 12px; outline: none;
+      transition: border .2s, box-shadow .2s;
+    }
+    .input:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px #22d3ee33; }
+
+    .input input { width: 100%; border: none; outline: none; background: transparent; color: inherit; font-size: 1rem; }
+    .unit { color: var(--muted); font-size: 0.9rem; }
+
+    .actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    button {
+      border: none; border-radius: 12px; padding: 10px 14px; font-weight: 700; cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #03121e;
+      box-shadow: 0 10px 20px #0ea5e933; transition: transform .08s ease, filter .2s;
+    }
+    button:hover { filter: brightness(1.05); }
+    button:active { transform: translateY(1px); }
+    .btn-secondary { background: #0a1a2d; color: #e6f1ff; border: 1px solid #1e3a5f; }
+
+    .duration-btn {
+      background: #0a1a2d; 
+      color: #e6f1ff; 
+      border: 1px solid #1e3a5f;
+    }
+    .duration-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); 
+      color: #03121e;
+      box-shadow: 0 10px 20px #0ea5e933;
+      border-color: var(--accent);
+    }
+
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; border-radius: 999px;
+      padding: 8px 12px; font-weight: 700; margin: 6px 6px 0 0; font-size: 0.95rem;
+    }
+    .b-ok { background: #113b22; color: var(--ok); border: 1px solid #1c6439; }
+    .b-warn { background: #412705; color: #fde68a; border: 1px solid #b45309; }
+    .b-danger { background: #3f0a0a; color: #fecaca; border: 1px solid #b91c1c; }
+
+    @keyframes pulse-yellow {
+      0% { box-shadow: 0 0 15px #f59e0b11, 0 0 0 0px #f59e0b22; }
+      100% { box-shadow: 0 0 25px #f59e0b33, 0 0 0 8px transparent; }
+    }
+
+    .result {
+      margin-top: 6px; padding: 18px; border-radius: 12px; 
+      background: linear-gradient(145deg, #412705, #78350f);
+      border: 1px solid var(--warn);
+      animation: pulse-yellow 2s infinite alternate;
+      transition: transform 0.3s ease;
+    }
+     .result:hover {
+      transform: scale(1.01);
+    }
+    .result h3 { margin: 0 0 10px; font-size: 1.05rem; color: #fef3c7; }
+    .result p { 
+      margin: 6px 0; 
+      color: #fde68a;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+    .muted { color: var(--muted); font-size: 0.9rem; }
+
+    footer { text-align: center; color: var(--muted); padding: 24px 16px; font-size: 0.9rem; }
+
+    .kpi {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 10px;
+    }
+    .kpi .tile { background: #0a1a2d; border: 1px solid #1e3a5f; border-radius: 12px; padding: 12px; }
+    .kpi .label { color: var(--muted); font-size: 0.85rem; }
+    .kpi .value { font-weight: 800; font-size: 1.2rem; }
+
+    .notice { font-size: 0.92rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚕️ Hypoglycemia Fluid Calculator</h1>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <section class="card" aria-labelledby="inputs">
+        <h2 id="inputs">Step 1 — Enter Parameters</h2>
+        <div class="parameter-group">
+          <div class="parameter-item">
+            <label for="fluidRate">Fluid infusion rate</label>
+            <div class="input"><input id="fluidRate" type="number" inputmode="decimal" min="1" step="0.1" placeholder="e.g., 80" />
+              <span class="unit">ml/kg/24h</span></div>
+          </div>
+          <div class="parameter-item">
+            <label for="gir">Glucose Infusion Rate (GIR)</label>
+            <div class="input"><input id="gir" type="number" inputmode="decimal" min="0.1" step="0.1" placeholder="e.g., 6" />
+              <span class="unit">mg/kg/min</span></div>
+          </div>
+          <div class="parameter-item">
+            <label for="weight">Child’s weight</label>
+            <div class="input"><input id="weight" type="number" inputmode="decimal" min="0.5" step="0.1" placeholder="e.g., 10" />
+              <span class="unit">kg</span></div>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="calcBtn">Calculate</button>
+          <button id="resetBtn" class="btn-secondary">Reset</button>
+        </div>
+        <p class="muted" style="margin-top:8px">Tip: Typical ranges — Fluid 60–150 ml/kg/day, GIR 4-12 mg/kg/min. Always use clinical judgment.</p>
+      </section>
+
+      <section class="card" aria-labelledby="tonicity">
+        <h2 id="tonicity">Step 2 — Target Concentration</h2>
+        <div class="kpi">
+          <div class="tile">
+            <div class="label">Required dextrose concentration</div>
+            <div class="value" id="pctDextrose">— %</div>
+          </div>
+          <div class="tile">
+            <div class="label">Total volume</div>
+            <div class="value" id="volTotal">— ml</div>
+          </div>
+        </div>
+        <div id="tonicityFlags" style="margin-top:10px"></div>
+      </section>
+
+      <section class="card" aria-labelledby="mixture">
+        <h2 id="mixture">Step 3 — D5 & D25 Mixture</h2>
+        <div id="duration-selector" class="actions" style="margin-bottom: 14px;">
+            <button class="duration-btn" data-duration="1">1 Hour Fluid</button>
+            <button class="duration-btn active" data-duration="6">6 Hour Fluid</button>
+            <button class="duration-btn" data-duration="24">24 Hour Fluid</button>
+        </div>
+        <div class="result" id="mixResult">
+          <h3>Mixture</h3>
+          <p>—</p>
+        </div>
+        <div class="actions">
+          <button id="copyBtn" class="btn-secondary">Copy results</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" aria-labelledby="safety">
+      <h2 id="safety">Safety Notes</h2>
+      <ul class="notice">
+        <li>If target concentration is <strong>&lt; 5%</strong>, the D5/D25 mix can’t go lower than D5; consider alternative diluents.</li>
+        <li>If target concentration is <strong>&gt; 25%</strong>, D25 is the highest in this tool; consider pharmacy‑prepared solutions.</li>
+        <li>High dextrose concentrations (e.g., <strong>&gt; 10–12.5%</strong>) often require central access.</li>
+        <li>Always reassess glucose, fluids, and clinical status regularly.</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    ©Dr. Rubanbalaji | Version 1.0
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    let currentDuration = 6; // Default to 6 hours
+
+    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+    function round1(x) { return Math.round(x * 10) / 10; }
+
+    function compute() {
+      const rate = parseFloat($("fluidRate").value);
+      const gir  = parseFloat($("gir").value);
+      const wt   = parseFloat($("weight").value);
+
+      if (!isFinite(rate) || rate <= 0 || !isFinite(gir) || gir <= 0 || !isFinite(wt) || wt <= 0) {
+        $("pctDextrose").textContent = '— %';
+        $("volTotal").textContent = '— ml';
+        $("mixResult").innerHTML = '<h3>Mixture</h3><p>Please enter valid positive numbers.</p>';
+        $("tonicityFlags").innerHTML = '';
+        return;
+      }
+
+      // 1) Tonicity
+      const mgPerMl = (gir * 1440) / rate; // mg/ml
+      const T = mgPerMl / 10;               // % dextrose
+
+      // 2) Volume for the selected duration
+      const V = rate * wt * (currentDuration / 24); // ml in selected duration
+
+      $("pctDextrose").textContent = `${round1(T)} %`;
+      $("volTotal").textContent = `${round1(V)} ml`;
+
+      // Flags and badges
+      const flags = [];
+      if (T < 5) flags.push(`<span class="badge b-warn">Target &lt; D5 — cannot go lower using only D5 & D25</span>`);
+      if (T > 25) flags.push(`<span class="badge b-warn">Target &gt; D25 — pharmacy prep may be needed</span>`);
+      if (T > 12.5) flags.push(`<span class="badge b-danger">High concentration - consider central assess</span>`);
+      if (T >= 5 && T <= 12.5) flags.push(`<span class="badge b-ok">Peripheral range</span>`);
+      $("tonicityFlags").innerHTML = flags.join(' ');
+
+      // 3) Mixture (x: D25, y: D5)
+      let x25 = V * (T - 5) / 20;
+      x25 = clamp(x25, 0, V);
+      const y5 = V - x25;
+
+      const durationText = currentDuration === 1 ? '1 hour' : `${currentDuration} hours`;
+      const text = `Mix <strong>${round1(x25)} ml of D25</strong> with <strong>${round1(y5)} ml of D5</strong> to deliver <strong>${round1(T)}%</strong> over <strong>${durationText}</strong> (Total: ${round1(V)} ml).`;
+
+      let note = '';
+      if (T < 5) note = ' Target below 5% is not achievable with D5/D25 alone — this gives D5 (≈5%).';
+      if (T > 25) note = ' Target above 25% is not achievable with D5/D25 — this gives D25 (≈25%).';
+
+      $("mixResult").innerHTML = `<h3>Mixture</h3><p>${text}${note}</p>`;
+
+      return { rate, gir, wt, T, V, x25, y5 };
+    }
+
+    $("calcBtn").addEventListener('click', compute);
+    
+    $("resetBtn").addEventListener('click', () => {
+      $("fluidRate").value = '';
+      $("gir").value = '';
+      $("weight").value = '';
+      $("pctDextrose").textContent = '— %';
+      $("volTotal").textContent = '— ml';
+      $("mixResult").innerHTML = '<h3>Mixture</h3><p>—</p>';
+      $("tonicityFlags").innerHTML = '';
+
+      // Reset duration selection
+      currentDuration = 6;
+      document.querySelectorAll('.duration-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.duration-btn[data-duration="6"]').classList.add('active');
+    });
+    
+    document.getElementById('duration-selector').addEventListener('click', (e) => {
+        if (e.target.matches('.duration-btn')) {
+            currentDuration = parseInt(e.target.dataset.duration, 10);
+
+            document.querySelectorAll('.duration-btn').forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+
+            // Re-run calculation only if there are valid inputs
+            const rate = parseFloat($("fluidRate").value);
+            if (rate > 0) {
+               compute();
+            }
+        }
+    });
+
+    $("copyBtn").addEventListener('click', async () => {
+      const res = compute();
+      if (!res) return;
+      const { rate, gir, wt, T, V, x25, y5 } = res;
+      const durationText = currentDuration === 1 ? '1h' : `${currentDuration}h`;
+      const msg = `Hypoglycemia Fluid Calculator (${durationText})\n` +
+                  `Fluid rate: ${rate} ml/kg/24h\n` +
+                  `GIR: ${gir} mg/kg/min\n` +
+                  `Weight: ${wt} kg\n` +
+                  `Target dextrose: ${round1(T)} %\n` +
+                  `${durationText} volume: ${round1(V)} ml\n` +
+                  `Mix: ${round1(x25)} ml of D25 + ${round1(y5)} ml of D5.`;
+      try {
+        await navigator.clipboard.writeText(msg);
+        const btn = $("copyBtn");
+        const old = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => (btn.textContent = old), 1200);
+      } catch {
+        // Fallback for older browsers or if permission denied
+        const textArea = document.createElement('textarea');
+        textArea.value = msg;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          const btn = $("copyBtn");
+          const old = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => (btn.textContent = old), 1200);
+        } catch (err) {
+          console.error('Fallback copy failed', err);
+        }
+        document.body.removeChild(textArea);
+      }
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatric History: A Visual Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .flow-item {
+            border-left: 2px solid #3E92CC;
+        }
+        .flow-item:not(:last-child)::after {
+            content: '↓';
+            display: block;
+            text-align: center;
+            color: #3E92CC;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            margin-top: 0.5rem;
+        }
+        .card-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-[#0A2463] text-[#2E2E3A]">
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Pediatric History Taking</h1>
+            <p class="text-lg text-[#FFF275]">A Visual Ready Reckoner for Common Symptoms</p>
+        </header>
+
+        <main class="space-y-8">
+
+            <section id="systemic-respiratory">
+                <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-[#3E92CC] pb-2">Systemic & Respiratory Symptoms</h2>
+                <p class="text-white/80 mb-6">This section covers the most frequent initial complaints that often present together, focusing on fever and respiratory distress. A systematic approach is crucial to differentiate benign from serious conditions.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">🌡️</span>Fever (Pyrexia)</h3>
+                        <p class="mb-4 text-gray-600">Investigate the fever's timeline, characteristics, and associated clues to narrow down the potential causes.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Onset & Duration</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>When did it start?</li>
+                                    <li>Sudden or gradual onset?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Pattern & Severity</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Continuous or intermittent?</li>
+                                    <li>Highest recorded temperature?</li>
+                                    <li>Accompanied by chills/rigors?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Associated Symptoms</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Cough, cold, rash, or pain?</li>
+                                    <li>Activity level between spikes?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No neck stiffness or light sensitivity?</li>
+                                <li>No rash that doesn't fade with pressure?</li>
+                                <li>No confusion or excessive drowsiness?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">💨</span>Cough</h3>
+                        <p class="mb-4 text-gray-600">The nature of the cough provides vital clues about the underlying location and cause of irritation in the respiratory tract.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Nature of Cough</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Dry or productive (with phlegm)?</li>
+                                    <li>Color of phlegm?</li>
+                                    <li>Paroxysmal (in bouts)?</li>
+                                    <li>Specific sound (barking, whoop)?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Timing & Triggers</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Worse at night or morning?</li>
+                                    <li>Triggered by feeding or activity?</li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No bluish discoloration of lips?</li>
+                                <li>Able to drink/feed without issue?</li>
+                                <li>No history of choking?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">🤧</span>Coryza (Runny Nose)</h3>
+                         <p class="mb-4 text-gray-600">Details of the nasal discharge can help distinguish between a common cold, allergies, or a sinus infection.</p>
+                        <div class="space-y-4 flex-grow">
+                             <div>
+                                <h4 class="font-semibold text-[#0A2463]">Nature of Discharge</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Watery/clear or thick/colored?</li>
+                                    <li>One or both nostrils?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Associated Symptoms</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Sneezing, itching, or watery eyes?</li>
+                                    <li>Difficulty feeding?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No high fever?</li>
+                                <li>No difficulty breathing?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-xl p-6 md:col-span-2 lg:col-span-3 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">🫁</span>Breathing Assessment</h3>
+                        <p class="mb-6 text-gray-600">Differentiate between rapid breathing (tachypnea) and true difficulty in breathing (dyspnea) by looking for signs of increased respiratory effort.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-[#0A2463] mb-3">Fast Breathing (Tachypnea)</h4>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li>When did it start? Constant or intermittent?</li>
+                                    <li>Is the child tired or lethargic?</li>
+                                    <li>Any bluish color on lips/tongue?</li>
+                                    <li>Is feeding affected?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-[#0A2463] mb-3">Difficulty in Breathing (Dyspnea)</h4>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li>Use of neck/chest muscles?</li>
+                                    <li>In-drawing of ribs or below ribcage?</li>
+                                    <li>Nostril flaring?</li>
+                                    <li>Abnormal sounds (grunt, wheeze, stridor)?</li>
+                                    <li>Able to talk, cry, or feed normally?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No bluish discoloration (cyanosis)?</li>
+                                <li>Child is alert and responsive?</li>
+                                <li>No history of choking or foreign body inhalation?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gastrointestinal">
+                <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-[#3E92CC] pb-2">Gastrointestinal Symptoms</h2>
+                <p class="text-white/80 mb-6">Abdominal issues are common in children. The history should focus on differentiating surgical emergencies from common medical conditions like gastroenteritis.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">🤢</span>Vomiting</h3>
+                        <p class="mb-4 text-gray-600">The appearance and timing of vomiting are critical to identify potential obstructions or infections.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Frequency & Volume</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>How many times in 24 hrs?</li>
+                                    <li>Small amount or entire feed?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Nature of Vomitus</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Milk/food or bloody?</li>
+                                    <li>Forceful (projectile) or gentle?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No green/yellow (bilious) vomit?</li>
+                                <li>No severe headache or stiff neck?</li>
+                                <li>No abdominal distension?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">🚽</span>Loose Stools (Diarrhea)</h3>
+                        <p class="mb-4 text-gray-600">Focus on the stool's characteristics and signs of dehydration, which is the primary risk of diarrhea.</p>
+                        <div class="space-y-4 flex-grow">
+                             <div>
+                                <h4 class="font-semibold text-[#0A2463]">Frequency & Character</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>How many times in 24 hrs?</li>
+                                    <li>Watery, pasty, or semi-solid?</li>
+                                    <li>Presence of blood or mucus?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Associated Symptoms</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Vomiting or fever?</li>
+                                    <li>Feeding well?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>Still producing tears when crying?</li>
+                                <li>Wet diapers within the last 6-8 hours?</li>
+                                <li>No sunken eyes or dry mouth?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">😖</span>Abdominal Pain</h3>
+                        <p class="mb-4 text-gray-600">A detailed pain history is key. The location, character, and associated symptoms help pinpoint the cause.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Location & Character</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Where is the pain?</li>
+                                    <li>Dull, sharp, or crampy?</li>
+                                    <li>Constant or intermittent?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Aggravating/Relieving Factors</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Worse with food or movement?</li>
+                                    <li>Better after passing stool/gas?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No pain specifically in lower right abdomen?</li>
+                                <li>Abdomen is soft, not hard/rigid?</li>
+                                <li>No difficulty walking or jumping?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="neurological">
+                 <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-[#3E92CC] pb-2">Neurological Symptoms</h2>
+                 <p class="text-white/80 mb-6">Neurological symptoms can be alarming. A precise description of the event from an eyewitness is invaluable for diagnosis and management.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                    <div class="bg-white rounded-lg shadow-xl p-6 md:col-span-2 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">⚡</span>Seizure (Convulsion)</h3>
+                        <p class="mb-6 text-gray-600">The history of a seizure is a story with a beginning, middle, and end. Capture the details of each phase from an eyewitness to understand the event.</p>
+                        <div class="flex flex-col md:flex-row md:space-x-4">
+                            <div class="flex-1 flow-item pl-4 mb-4 md:mb-0">
+                                <h4 class="text-xl font-semibold text-[#0A2463]">1. Description of Event</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-2">
+                                    <li>Stiffening or jerking movements?</li>
+                                    <li>One side or whole body?</li>
+                                    <li>Loss of consciousness? How long?</li>
+                                </ul>
+                            </div>
+                            <div class="flex-1 flow-item pl-4 mb-4 md:mb-0">
+                                <h4 class="text-xl font-semibold text-[#0A2463]">2. Post-Event State</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-2">
+                                    <li>Sleepy or confused afterward?</li>
+                                    <li>Returned to normal quickly?</li>
+                                </ul>
+                            </div>
+                            <div class="flex-1 flow-item pl-4">
+                                <h4 class="text-xl font-semibold text-[#0A2463]">3. Key Negatives to Ask</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-2">
+                                    <li>No recent head injury?</li>
+                                    <li>No known ingestion of toxins?</li>
+                                    <li>Child returned to their normal self?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">🤯</span>Headache</h3>
+                         <p class="mb-4 text-gray-600">Look for red flags in the headache history that might suggest increased intracranial pressure or other serious causes.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Character & Severity</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Location: Front, back, or one-sided?</li>
+                                    <li>Type: Throbbing, pounding, or dull?</li>
+                                    <li>Does it affect daily activities?</li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No vomiting, especially in the morning?</li>
+                                <li>No changes in vision or balance?</li>
+                                <li>Headache does not wake child from sleep?</li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">❓</span>Altered Sensorium</h3>
+                        <p class="mb-4 text-gray-600">Quantify the change in consciousness. Is the child drowsy, confused, irritable, or completely unresponsive?</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Description of Change</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>How are they different from usual?</li>
+                                    <li>Difficult to wake up (drowsy)?</li>
+                                    <li>Not recognizing surroundings (confused)?</li>
+                                    <li>Unusually irritable or agitated?</li>
+                                    <li>Unresponsive?</li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No recent head injury?</li>
+                                <li>No known ingestion of medication/toxins?</li>
+                                <li>No preceding fever or headache?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="other-symptoms">
+                <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-[#3E92CC] pb-2">Other Common Presentations</h2>
+                <p class="text-white/80 mb-6">This section covers other frequent complaints that require specific lines of questioning to uncover the underlying cause, from skin manifestations to localized pain.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">🎨</span>Skin Rash</h3>
+                        <p class="mb-4 text-gray-600">Describe the rash's appearance, location, and progression. Note any itchiness or associated systemic symptoms.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Appearance & Distribution</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>When did it appear? Where did it start?</li>
+                                    <li>Flat, raised, bumpy, or blisters?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Associated Symptoms</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Is it itchy or painful?</li>
+                                    <li>Any fever or joint pain?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>Rash blanches (fades) with pressure?</li>
+                                <li>No blisters in mouth or eyes?</li>
+                                <li>Child is otherwise well and active?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">👂</span>Ear Pain</h3>
+                        <p class="mb-4 text-gray-600">For pre-verbal children, look for non-verbal cues. Inquire about discharge and recent upper respiratory infections.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Characteristics</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>One ear or both?</li>
+                                    <li>Child pulling at their ear?</li>
+                                    <li>Any fluid or discharge?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Associated Symptoms</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Recent cold, cough, or fever?</li>
+                                    <li>Any difficulty hearing?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No swelling or redness behind the ear?</li>
+                                <li>No high, persistent fever?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">👄</span>Sore Throat</h3>
+                        <p class="mb-4 text-gray-600">Difficulty swallowing is a key sign. Assess for signs of significant airway obstruction or systemic illness.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Severity & Signs</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Refusing to eat or drink?</li>
+                                    <li>Muffled or changed voice?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Associated Symptoms</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Fever, headache, or stomach ache?</li>
+                                    <li>Any rash on the body?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No drooling or difficulty breathing?</li>
+                                <li>Able to swallow liquids?</li>
+                                <li>Neck is not stiff?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#D8315B] mb-4 flex items-center"><span class="card-icon mr-3">💧</span>Urinary Issues</h3>
+                        <p class="mb-4 text-gray-600">Changes in urination habits can indicate a urinary tract infection, which may present non-specifically in children.</p>
+                        <div class="space-y-4 flex-grow">
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Urination Changes</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Pain or crying during urination?</li>
+                                    <li>Urinating more frequently?</li>
+                                    <li>Sudden new onset of bedwetting?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#0A2463]">Associated Symptoms</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-1">
+                                    <li>Foul-smelling or cloudy urine?</li>
+                                    <li>Abdominal or lower back pain?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-[#D8315B]">Key Negatives to Ask</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-1">
+                                <li>No high fever or vomiting?</li>
+                                <li>Child is feeding well?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-12 pt-6 border-t border-gray-500">
+            <p class="text-white/70">A thorough history is the most powerful diagnostic tool. This guide serves as a starting point for clinical evaluation.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
+
