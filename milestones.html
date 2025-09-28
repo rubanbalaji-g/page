@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developmental Milestones</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .milestones-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .milestones-table th,
+        .milestones-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        
+        .milestones-table ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .milestones-table li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .milestones-table li:last-child {
+            margin-bottom: 0;
+        }
+
+        .milestones-table thead {
+            background-color: #34495e;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .milestones-table tbody tr:nth-child(even) {
+            background-color: #fdfdfd;
+        }
+        
+        .milestones-table tbody tr:last-child td {
+             border-bottom: none;
+        }
+
+        .milestones-table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .age-col {
+            background-color: #ecf0f1;
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 100px;
+        }
+        
+        .red-flags {
+            list-style-type: none;
+            padding-left: 1.2rem;
+            margin-top: 0.8rem;
+            color: #d9534f;
+            font-size: 0.9em;
+        }
+
+        .red-flags li::before {
+            content: '🚩';
+            display: inline-block;
+            margin-left: -1.2rem;
+            width: 1.2rem;
+        }
+
+        /* Domain Specific Colors */
+        .gross-motor { background-color: #e8f5e9; } /* Light Green */
+        .fine-motor { background-color: #e3f2fd; } /* Light Blue */
+        .speech-language { background-color: #fff3e0; } /* Light Orange */
+        .social-cognitive { background-color: #f3e5f5; } /* Light Purple */
+        .vision-hearing { background-color: #fffde7; } /* Light Yellow */
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .milestones-table, .milestones-table thead, .milestones-table tbody, .milestones-table th, .milestones-table td, .milestones-table tr {
+                display: block;
+            }
+            .milestones-table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            .milestones-table tr {
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+            }
+            .milestones-table td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+             .milestones-table tr td:last-child {
+                border-bottom: none;
+            }
+            .milestones-table td:before {
+                position: absolute;
+                top: 1.2rem;
+                left: 1rem;
+                width: 45%;
+                padding-right: 1rem;
+                white-space: nowrap;
+                font-weight: 600;
+                text-align: left;
+            }
+            .milestones-table td[data-label="Age"] { background-color: #ecf0f1; font-weight: bold; }
+            .milestones-table td[data-label="Age"]:before { content: "Age"; }
+            .milestones-table td[data-label="Gross Motor"]:before { content: "Gross Motor"; }
+            .milestones-table td[data-label="Fine Motor"]:before { content: "Fine Motor"; }
+            .milestones-table td[data-label="Speech & Language"]:before { content: "Speech & Lang."; }
+            .milestones-table td[data-label="Social & Cognitive"]:before { content: "Social/Cog."; }
+            .milestones-table td[data-label="Vision & Hearing"]:before { content: "Vision/Hearing"; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Developmental Milestones Guide</h1>
+        <p class="subtitle">This chart outlines typical developmental milestones. The "Red Flags" indicate signs where you might consider consulting a pediatrician.</p>
+        <table class="milestones-table">
+            <thead>
+                <tr>
+                    <th>Age</th>
+                    <th>Gross Motor</th>
+                    <th>Fine Motor</th>
+                    <th>Speech & Language</th>
+                    <th>Social & Cognitive</th>
+                    <th>Vision & Hearing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Age" class="age-col">At Birth</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Able to fixate and follow objects up to 45°</li><li>Responds to sound by blinking and startling</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">1 Month</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Fixates on mother when she talks to baby, and follows objects up to 90°</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">6 Weeks</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Social smile</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Binocular vision begins</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">3 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Neck holding</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Coos</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Recognises and smiles at mother</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Fixates objects up to 180°</li><li>Turns head towards sound sideways</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">4 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Bidexterous reach for objects</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Laughs</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Binocular vision established</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">5 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Palmar grasp</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Turns head towards sound upward and downward (below level of ear)</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">6 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Rolls on stomach</li><li>Sits with support</li></ul><ul class="red-flags"><li>Not holding head up</li><li>Not rolling over</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Transfers objects between hands</li></ul><ul class="red-flags"><li>Not reaching for toys</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Babbles (monosyllables)</li></ul><ul class="red-flags"><li>Not starting to babble</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Stranger anxiety</li></ul><ul class="red-flags"><li>Doesn't smile at people</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Adjusts his position to follow the object of interest</li><li>Turns head towards sound upward and downward (both above and below level of ear)</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">7-8 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Sits without support</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Understands "no"</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Understands "bye-bye"</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">8-9 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Babbles (bi-syllables)</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Waves bye-bye</li><li>Plays peek-a-boo</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">9 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Stands with support</li><li>Crawls</li></ul><ul class="red-flags"><li>Doesn't bear weight on legs</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Immature pincer grasp</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Responds to own name</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">10 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Identifies "mama", "papa"</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul><li>Turns head diagonally towards sound</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">11 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Cruising</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">12 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Walks with support</li></ul><ul class="red-flags"><li>No independent mobility</li><li>Not pulling to stand</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Stacks 2 blocks</li><li>Mature pincer grasp</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>1 or 2 words with meaning</li></ul><ul class="red-flags"><li>No babbled phrases</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Comes when called and plays a simple ball game</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul class="red-flags"><li>No response to familiar words</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">15 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Walking</li></ul><ul class="red-flags"><li>Not attempting to walk</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Scribbles</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Jargon speech</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">16 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Hurried walking</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Uses angry and friendly tones</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">18 Months</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Backward walking</li><li>Able to run</li></ul><ul class="red-flags"><li>Not able to walk independently</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Stacks 4 blocks</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Knows 10 words</li></ul><ul class="red-flags"><li>Not using clear words</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Removes clothes</li><li>Parallel play</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"><ul class="red-flags"><li>Not able to understand short requests</li></ul></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">2 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Throws ball</li><li>Jumps with both feet</li><li>Tiptoes</li><li>Climbs stairs (2 ft/step)</li></ul><ul class="red-flags"><li>Can't walk up/down stairs holding on</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Draws vertical line</li><li>Stacks 6 blocks</li></ul><ul class="red-flags"><li>Does not scribble</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>2-word phrases</li><li>Knows ~50 words</li><li>Understands verbs</li><li>Uses pronouns like "I", "me", "you"</li></ul><ul class="red-flags"><li>Not putting words together</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Asks for food and toys</li><li>Pulls people to show toys</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">2.5 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Kicks ball</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Draws horizontal line</li><li>Stacks 8 blocks</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Knows ~200 words</li><li>Understands prepositions</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">3 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Stands on one foot (3 sec)</li><li>Rides a tricycle</li><li>Climbs stairs (1 ft/step)</li></ul><ul class="red-flags"><li>Not able to run or jump</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Makes single cuts with scissors</li><li>Threads large beads</li><li>Draws a circle</li><li>Tower of 9 blocks</li></ul><ul class="red-flags"><li>Difficulty with small objects</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>3-word phrases</li><li>Asks WHAT/WHO questions</li><li>Uses negatives</li><li>Knows full name and gender</li></ul><ul class="red-flags"><li>Speech hard to understand</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Dresses self (no buttons/laces)</li><li>Counts to 10</li><li>Shares toys</li></ul><ul class="red-flags"><li>Doesn't attempt self-care</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">3.5 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Cuts paper into pieces</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Comparative adjectives</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">4 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Walks up/down stairs (1 ft/step)</li><li>Hops</li><li>Stands on one foot (5 sec)</li></ul><ul class="red-flags"><li>Can't walk, run, or climb confidently</li><li>Can't catch or kick a ball</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Cuts paper in half</li><li>Threads small beads</li><li>Draws a cross</li><li>Bridge with blocks</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Asks WHY/WHEN/HOW</li><li>Tells songs, poems, and stories</li></ul><ul class="red-flags"><li>Can't follow 2-step directions</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Independent toileting & brushing</li><li>Fully dresses/undresses</li><li>Identifies most colors</li><li>Group play</li></ul><ul class="red-flags"><li>Not toilet trained by day</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">4.5 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Draws a square</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Bladder control</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">5 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Jumps sideways</li><li>Stands on one foot (10 sec)</li><li>Skipping</li></ul><ul class="red-flags"><li>Not able to hop 5 times on one leg</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Draws a triangle</li><li>Can handle a knife</li><li>Gate with blocks</li></ul><ul class="red-flags"><li>Not able to draw simple pictures</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"><ul><li>Uses detailed sentences</li><li>Asks meaning of words</li></ul><ul class="red-flags"><li>Difficulty telling a parent what is wrong</li></ul></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"><ul><li>Sorts by color and size</li><li>Undresses and dresses by self</li></ul><ul class="red-flags"><li>Can't complete everyday activities</li></ul></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">5-6 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Balances on one foot (20 sec)</li><li>Rides bike with stabilizers</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">7-8 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"><ul><li>Rides bike without stabilizers</li><li>Catches ball with one hand</li></ul></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Draws a diamond</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+                <tr>
+                    <td data-label="Age" class="age-col">12 Years</td>
+                    <td data-label="Gross Motor" class="gross-motor"></td>
+                    <td data-label="Fine Motor" class="fine-motor"><ul><li>Draws a cube</li></ul></td>
+                    <td data-label="Speech & Language" class="speech-language"></td>
+                    <td data-label="Social & Cognitive" class="social-cognitive"></td>
+                    <td data-label="Vision & Hearing" class="vision-hearing"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
