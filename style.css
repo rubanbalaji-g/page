@@ -141,34 +141,38 @@ body {
 /* --- Card-Specific Colors --- */
 
 /* 1. Milestones (Green) */
-#card-milestones h2 {
+/* Making the selector more specific */
+a#card-milestones h2 {
     color: var(--green);
 }
-#card-milestones::before {
+a#card-milestones::before {
     background: linear-gradient(to right, var(--green-light), var(--green));
 }
 
 /* 2. GIR (Amber) */
-#card-gir h2 {
+/* Making the selector more specific */
+a#card-gir h2 {
     color: var(--amber);
 }
-#card-gir::before {
+a#card-gir::before {
     background: linear-gradient(to right, var(--amber-light), var(--amber));
 }
 
 /* 3. History (Purple) */
-#card-history h2 {
+/* Making the selector more specific */
+a#card-history h2 {
     color: var(--violet);
 }
-#card-history::before {
+a#card-history::before {
     background: linear-gradient(to right, var(--violet-light), var(--violet));
 }
 
 /* 4. Questions (Teal) */
-#card-questions h2 {
+/* Making the selector more specific */
+a#card-questions h2 {
     color: var(--teal);
 }
-#card-questions::before {
+a#card-questions::before {
     background: linear-gradient(to right, var(--teal-light), var(--teal));
 }
 
