@@ -1,44 +1,68 @@
 /* --- General Setup & Variables --- */
 :root {
-    --primary-color: #007bff;      /* A professional blue */
-    --secondary-color: #5a6268;   /* A softer grey for text */
-    --background-color: #f8f9fa;  /* Light grey background */
-    --card-background: #ffffff;   /* White cards */
-    --shadow-color: rgba(0, 0, 0, 0.08);
+    --primary-color: #0052D4; /* A deeper, richer blue */
+    --primary-light: #4364F7;
+    --secondary-color: #556270; /* Softer grey for text */
+    --background-color: #f7f8fc; /* Very light blue/grey */
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 82, 212, 0.1); /* Shadow based on primary color */
     --font-family: 'Poppins', sans-serif;
+
+    /* New colors for cards */
+    --green: #16a34a;
+    --green-light: #22c55e;
+    --amber: #d97706;
+    --amber-light: #f59e0b;
+    --violet: #7c3aed;
+    --violet-light: #8b5cf6;
+    --teal: #0d9488;
+    --teal-light: #14b8a6;
 }
 
+/* --- Base & Body Styling --- */
 body {
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
-    color: #333;
-    line-height: 1.6;
+    color: var(--secondary-color); /* Default text color */
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Header & Footer Styling --- */
+/* --- Header Styling --- */
 .site-header {
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
     background-color: var(--card-background);
-    border-bottom: 1px solid #e9ecef;
+    /* Adding a subtle gradient border at the bottom */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, var(--primary-light), var(--primary-color));
+    border-image-slice: 1;
 }
 
 .site-header h1 {
     margin: 0;
     font-size: 2.8rem;
     font-weight: 600;
-    color: var(--primary-color);
+    /* Gradient text for the main heading */
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .site-header p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--secondary-color);
-    margin-top: 8px;
+    margin-top: 10px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 300;
 }
 
 .site-footer {
@@ -56,50 +80,115 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     padding: 50px 25px;
-    max-width: 1200px;
+    max-width: 1300px; /* Increased max-width for wider layouts */
     margin: 0 auto; /* Centers the grid */
 }
 
 /* --- Tool Card Styling --- */
 .tool-card {
     background-color: var(--card-background);
-    border-radius: 12px;
+    border-radius: 16px; /* More rounded corners */
     padding: 30px;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 4px 15px var(--shadow-color);
+    /* A more complex, softer shadow */
+    box-shadow: 0 4px 12px var(--shadow-color), 0 2px 4px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e9ecef;
+    border: 1px solid #eef0f4;
+    position: relative;
+    overflow: hidden; /* To contain pseudo-elements */
+}
+
+/* Adding a subtle decorative element */
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* A colored top border */
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .tool-card:hover {
-    /* Lifts the card up on hover for a nice interactive effect */
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px); /* Lift a bit more */
+    box-shadow: 0 10px 20px var(--shadow-color), 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.tool-card:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 .tool-card h2 {
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-size: 1.4rem; /* Slightly smaller for balance */
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Make heading primary color */
 }
 
 .tool-card p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem; /* Slightly smaller */
     color: var(--secondary-color);
     font-weight: 300;
 }
 
+/* --- Card-Specific Colors --- */
+
+/* 1. Milestones (Green) */
+#card-milestones h2 {
+    color: var(--green);
+}
+#card-milestones::before {
+    background: linear-gradient(to right, var(--green-light), var(--green));
+}
+
+/* 2. GIR (Amber) */
+#card-gir h2 {
+    color: var(--amber);
+}
+#card-gir::before {
+    background: linear-gradient(to right, var(--amber-light), var(--amber));
+}
+
+/* 3. History (Purple) */
+#card-history h2 {
+    color: var(--violet);
+}
+#card-history::before {
+    background: linear-gradient(to right, var(--violet-light), var(--violet));
+}
+
+/* 4. Questions (Teal) */
+#card-questions h2 {
+    color: var(--teal);
+}
+#card-questions::before {
+    background: linear-gradient(to right, var(--teal-light), var(--teal));
+}
+
+
 /* --- Responsive Design for smaller screens --- */
 @media (max-width: 768px) {
+    .site-header {
+        padding: 40px 15px;
+    }
+    
     .site-header h1 {
         font-size: 2.2rem;
     }
     
+    .site-header p {
+        font-size: 1rem;
+    }
+    
     .tools-grid {
         padding: 30px 15px;
+        grid-template-columns: 1fr; /* Single column on mobile */
     }
 }
